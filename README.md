@@ -18,11 +18,11 @@ accuracy and device tracking.
 
 ## Installation
 
-Copy `custom_components/pcsensor` to `<HA config_dir>/custom_components/`.
+Copy `custom_components/usbtemp` to `<HA config_dir>/custom_components/`.
 
 Add the following to your `configuration.yaml` file:
 
 ```yaml
 sensor:
-  - platform: pcsensor
+  - platform: usbtemp
 ```
