@@ -57,7 +57,7 @@ def find_devices():
             serial = serial.read_text().strip()
             assert serial           # blank serial number on this device
             # we only need the serial number.
-            uids.add(serial.read_text().strip())
+            uids.add(serial)
 
     # Look up a link to the specific ttyusbXX file
     uid_path_map = {}
