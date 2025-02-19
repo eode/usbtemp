@@ -1,7 +1,7 @@
 {
   "domain": "usbtemp",
   "name": "USBTEMP Devices",
-  "codeowners": ['aeon.descriptor@gmail.com'],
+  "codeowners": ["aeon.descriptor@gmail.com"],
   "dependencies": [],
   "documentation": "https://github.com/eode/usbtemp",
   "iot_class": "local_polling",
