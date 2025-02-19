@@ -1,40 +1,20 @@
-# PCSensor TEMPer devices
+# USBTEMP devices
 
 | Platform | Description |
 | -------- | ------------ |
-| sensor   | Creates temperature and/or humidity sensor entities for each PCSensor TEMPer USB device plugged into your system |
+| sensor   | Creates one temperature sensor entity for each [usbtemp](https://usbtemp.com) USB device plugged into your system |
 
-This sensor reads PCSensor TEMPer devices, which are simple USB
-temperature and humidity sensors.  There are various revisions of
-the hardware, and this code supports many of them -- specifically,
-those supported by the `temper-py` module.
+This project is not affiliated with [usbtemp.com](https://usbtemp.com),
+I'm simply writing it for my own utility, and sharing the resultant code.
 
-## Caveats
-There are two major caveats to using these devices.  I assure you,
-I'm only coding this because I lack other convenient temperature
-sensors.  I should really just spend $30 and get a different one.
-
-### Inaccuracy
-Be forewarned -- these devices have a flaw (or there is an 
-implementation issue across multiple drivers in various programming 
-languages) that cause the temperature to "stick" occasionally.  This 
-goes beyond mere binary granularity, but seems to be an actual flaw
-in the hardware, unless there is some undocumented means of interacting 
-with the hardware in a way that prevents this behavior.  ..which is
-totally possible, as there's no documentation for interacting with
-the sensor.  Some people just want to see the world burn.
-
-That said, for some, this hardware may just be "good enough."
-
-### Not Unique
-The devices have no unique identifier, at all.  Every TEMPer device
-of one hardware revision looks like every other TEMPer device of that
-hardware revision.  This means the devices have no unique id.
-
-The workaround that this module implements is that the USB port is used 
-to uniquely identify the device.  That is, if you unplug it, and plug 
-it into a different port, HomeAssistant will see it as an entirely 
-different device.
+This sensor reads USBTEMP devices, which are simple, good-quality USB
+temperature sensors based on a genuine DS18B20 1–wire sensor and USB 
+bridge interface, providing 9-bit to 12-bit temperature measurements.
+Each thermometer has an unique 64-bit serial code stored inside ROM,
+as well as a unique USB Serial code.  This is particularly useful for
+Homeassistant, allowing distinct entities to be created and tracked. 
+It compares favorably to sensors like the PCSensor TEMPer USB, both in
+accuracy and device tracking.
 
 ## Installation
 
