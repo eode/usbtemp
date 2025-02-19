@@ -55,7 +55,7 @@ def find_devices():
             serial = dev / 'serial'
             assert serial.exists()  # no serial number present for this device
             serial = serial.read_text().strip()
-            assert serial.exists()  # blank serial number on this device
+            assert serial           # blank serial number on this device
             # we only need the serial number.
             uids.add(serial.read_text().strip())
 
