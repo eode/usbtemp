@@ -65,7 +65,7 @@ def find_devices():
         for uid in uids:
             if uid in path.name:
                 uid_path_map[uid] = path
-    return [USBTempSensor(dev, uid) for uid, dev in uid_path_map.values()]
+    return [USBTempSensor(dev, uid) for uid, dev in uid_path_map.items()]
 
 
 class USBTempSensor(SensorEntity):
