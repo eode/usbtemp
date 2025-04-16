@@ -4,6 +4,7 @@ from __future__ import annotations
 # stdlib
 from pathlib import Path
 import re
+import termios
 from time import time
 
 # 3rd party
@@ -90,5 +91,11 @@ class USBTempSensor(SensorEntity):
         This is the only method that should fetch new data for Home Assistant.
         """
         if time() > self._usbtemp_next_read:
-            self._attr_native_value = self._usbtemp_thermometer.Temperature()
-            self._usbtemp_next_read = time() + self.read_interval
+            thermometer = self._usbtemp_thermometer
+            try:
+                if not thermometer.uart:
+                    thermometer.Open()
+                self._attr_native_value = self._usbtemp_thermometer.Temperature()
+                self._usbtemp_next_read = time() + self.read_interval
+            except (IOError, termios.error):
+                self._usbtemp_thermometer.Close()
