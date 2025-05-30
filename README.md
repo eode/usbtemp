@@ -7,6 +7,9 @@
 This project is not affiliated with [usbtemp.com](https://usbtemp.com),
 I'm simply writing it for my own utility, and sharing the resultant code.
 
+This project has not yet been accepted into HACS, so manual installation
+is required.
+
 This sensor reads USBTEMP devices, which are simple, good-quality USB
 temperature sensors based on a genuine DS18B20 1–wire sensor and USB 
 bridge interface, providing 9-bit to 12-bit temperature measurements.
