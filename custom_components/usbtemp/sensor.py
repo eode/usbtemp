@@ -97,5 +97,7 @@ class USBTempSensor(SensorEntity):
                     thermometer.Open()
                 self._attr_native_value = round(float(self._usbtemp_thermometer.Temperature()), 1)
                 self._usbtemp_next_read = time() + self.read_interval
+                self._attr_available = True
             except (IOError, termios.error):
+                self._attr_available = False
                 self._usbtemp_thermometer.Close()
